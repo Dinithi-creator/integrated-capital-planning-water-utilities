@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IFS Copperleaf – Water & Wastewater Campaign 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:#0e0630;color:#fff;-webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+:root{
+  --purple-deep:#0e0630;
+  --purple-dark:#1a0a4a;
+  --purple-mid:#2d1580;
+  --purple-bright:#6c3bff;
+  --purple-accent:#8b5cf6;
+  --purple-light:#c4b5fd;
+  --purple-pale:#f3f0ff;
+  --teal:#00d4c8;
+  --white:#ffffff;
+  --card-bg:#ffffff;
+  --card-border:rgba(108,59,255,0.15);
+  --text-dark:#1a0a4a;
+  --text-muted:#64748b;
+  --radius:8px;
+  --radius-lg:14px;
+  --shadow:0 2px 12px rgba(108,59,255,0.18);
+  --shadow-hover:0 8px 32px rgba(108,59,255,0.32);
+}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:200;background:rgba(14,6,48,0.96);backdrop-filter:blur(10px);border-bottom:1px solid rgba(108,59,255,0.25)}
+.nav-inner{max-width:1220px;margin:0 auto;display:flex;align-items:center;padding:0 1.25rem;gap:1rem}
+.nav-brand{display:flex;align-items:center;gap:9px;padding:11px 0;flex-shrink:0}
+.nav-logo{width:32px;height:32px;flex-shrink:0}
+.nav-brand-name{font-size:13px;font-weight:700;color:#fff;line-height:1.2;white-space:nowrap}
+.nav-brand-sub{font-size:10px;color:var(--purple-light);text-transform:uppercase;letter-spacing:0.8px}
+.nav-sep{width:1px;height:26px;background:rgba(108,59,255,0.35);flex-shrink:0}
+.nav-links{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;flex:1}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{font-size:11.5px;font-weight:500;color:rgba(255,255,255,0.6);padding:13px 11px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.nav-links a:hover{color:#fff;border-bottom-color:var(--purple-bright)}
+.nav-cta{flex-shrink:0;background:var(--purple-bright);color:#fff;font-size:12px;font-weight:700;padding:7px 16px;border-radius:50px;white-space:nowrap;transition:background .15s}
+.nav-cta:hover{background:var(--purple-accent)}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(160deg,#1a0a4a 0%,#0e0630 50%,#150840 100%);position:relative;overflow:hidden;padding:72px 1.25rem 80px}
+.hero::before{content:'';position:absolute;top:-120px;right:-80px;width:600px;height:600px;background:radial-gradient(circle,rgba(108,59,255,0.18) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-60px;width:400px;height:400px;background:radial-gradient(circle,rgba(0,212,200,0.08) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1220px;margin:0 auto;position:relative}
+.hero-pills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:1.25rem}
+.pill{display:inline-flex;align-items:center;font-size:11px;font-weight:700;padding:4px 12px;border-radius:50px;letter-spacing:0.4px;text-transform:uppercase}
+.pill-purple{background:rgba(108,59,255,0.25);color:var(--purple-light);border:1px solid rgba(108,59,255,0.45)}
+.pill-teal{background:rgba(0,212,200,0.15);color:var(--teal);border:1px solid rgba(0,212,200,0.35)}
+.pill-white{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.18)}
+.hero-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--purple-light);opacity:0.7;margin-bottom:12px}
+.hero h1{font-size:clamp(26px,4.5vw,52px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:18px;max-width:820px}
+.hero h1 em{font-style:normal;color:var(--purple-bright)}
+.hero-desc{font-size:clamp(14px,2vw,17px);color:rgba(255,255,255,0.7);max-width:660px;line-height:1.75;margin-bottom:2rem}
+.hero-meta{display:flex;flex-wrap:wrap;gap:2rem;padding:1.5rem 0;border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:2rem}
+.hm-item .hm-label{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.35);margin-bottom:4px}
+.hm-item .hm-val{font-size:13px;font-weight:700;color:#fff}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:11px 22px;border-radius:50px;font-size:13px;font-weight:700;transition:all .15s;border:none;cursor:pointer}
+.btn-primary{background:var(--purple-bright);color:#fff}
+.btn-primary:hover{background:var(--purple-accent);transform:translateY(-1px)}
+.btn-teal{background:var(--teal);color:var(--purple-deep)}
+.btn-teal:hover{opacity:0.9;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.3)}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,0.06)}
+
+/* ── SECTION WRAPPERS ── */
+.sec-dark{background:linear-gradient(180deg,var(--purple-dark) 0%,var(--purple-deep) 100%);padding:5rem 1.25rem}
+.sec-mid{background:var(--purple-mid);padding:5rem 1.25rem}
+.sec-deepest{background:#09031e;padding:5rem 1.25rem}
+.sec-white{background:#f8f7ff;padding:5rem 1.25rem}
+.sec-inner{max-width:1220px;margin:0 auto}
+.sec-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--purple-bright);margin-bottom:8px}
+.sec-eyebrow-teal{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--teal);margin-bottom:8px}
+.sec-title{font-size:clamp(22px,3.2vw,36px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:12px}
+.sec-title-dark{font-size:clamp(22px,3.2vw,36px);font-weight:800;color:var(--text-dark);line-height:1.2;margin-bottom:12px}
+.sec-title em{font-style:normal;color:var(--purple-bright)}
+.sec-body{font-size:15px;color:rgba(255,255,255,0.65);max-width:700px;line-height:1.8;margin-bottom:2.5rem}
+.sec-body-dark{font-size:15px;color:var(--text-muted);max-width:700px;line-height:1.8;margin-bottom:2.5rem}
+
+/* ── GRIDS ── */
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.ga{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.ga-sm{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
+
+/* ── WHITE CARDS ── */
+.wcard{background:var(--card-bg);border-radius:var(--radius-lg);padding:1.5rem;box-shadow:var(--shadow);transition:box-shadow .2s,transform .2s;border:1px solid var(--card-border)}
+.wcard:hover{box-shadow:var(--shadow-hover);transform:translateY(-3px)}
+.wcard-title{font-size:15px;font-weight:700;color:var(--purple-bright);margin-bottom:8px;line-height:1.35}
+.wcard-body{font-size:13.5px;color:var(--text-muted);line-height:1.7}
+
+/* ── STAT CARDS (overview) ── */
+.scard{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:1.25rem;border-top:3px solid var(--purple-bright)}
+.scard .sl{font-size:10px;text-transform:uppercase;letter-spacing:0.8px;color:rgba(255,255,255,0.4);margin-bottom:6px}
+.scard .sv{font-size:15px;font-weight:700;color:#fff}
+
+/* ── AUDIENCE ── */
+.acard{background:var(--card-bg);border-radius:var(--radius);padding:1.1rem 1.25rem;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow);transition:box-shadow .15s,transform .15s;border:1px solid var(--card-border)}
+.acard:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.aicon{width:40px;height:40px;border-radius:var(--radius);background:linear-gradient(135deg,#ede9fe,#ddd6fe);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.aabbr{font-size:10px;font-weight:700;color:var(--purple-bright);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:1px}
+.atitle{font-size:13px;font-weight:700;color:var(--text-dark)}
+
+/* ── CHALLENGE CARDS ── */
+.chal-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:var(--radius-lg);padding:1.6rem;transition:background .15s}
+.chal-card:hover{background:rgba(108,59,255,0.12)}
+.chal-num{font-size:11px;font-weight:800;color:var(--purple-bright);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+.chal-bar{width:28px;height:3px;background:var(--purple-bright);border-radius:2px;margin-bottom:14px}
+.chal-title{font-size:16px;font-weight:800;color:#fff;margin-bottom:9px}
+.chal-desc{font-size:13px;color:rgba(255,255,255,0.58);line-height:1.7}
+
+/* ── MESSAGING ── */
+.mcard{background:var(--card-bg);border-radius:var(--radius-lg);padding:1.75rem;box-shadow:var(--shadow);border-top:4px solid var(--purple-bright);transition:box-shadow .2s,transform .2s}
+.mcard:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.mnum{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--purple-bright);margin-bottom:10px}
+.mtitle{font-size:15px;font-weight:800;color:var(--text-dark);margin-bottom:10px;line-height:1.35}
+.mdesc{font-size:13.5px;color:var(--text-muted);line-height:1.72}
+
+/* ── BIG STAT SECTION ── */
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;text-align:center}
+.stat-item{padding:2.5rem 1.5rem;border-right:1px solid rgba(255,255,255,0.1)}
+.stat-item:last-child{border-right:none}
+.stat-item.featured{background:rgba(108,59,255,0.2);border:1px solid rgba(108,59,255,0.4);border-radius:var(--radius-lg);margin:-4px}
+.stat-num{font-size:clamp(36px,5vw,60px);font-weight:900;color:#fff;line-height:1;margin-bottom:10px}
+.stat-label{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.5;max-width:200px;margin:0 auto}
+.stat-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:2.5rem}
+
+/* ── FUNNEL ── */
+.funnel-row{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:1.1rem 1.25rem;display:grid;grid-template-columns:130px 72px 1fr;gap:12px;align-items:start;transition:background .15s}
+.funnel-row:hover{background:rgba(108,59,255,0.12)}
+.f-stage{font-size:14px;font-weight:800;color:#fff}
+.ftag{display:inline-block;padding:3px 10px;border-radius:50px;font-size:10.5px;font-weight:700}
+.ft-tofu{background:rgba(0,212,200,0.15);color:var(--teal);border:1px solid rgba(0,212,200,0.3)}
+.ft-mofu{background:rgba(251,191,36,0.15);color:#fbbf24;border:1px solid rgba(251,191,36,0.3)}
+.ft-bofu{background:rgba(108,59,255,0.25);color:var(--purple-light);border:1px solid rgba(108,59,255,0.4)}
+.f-content{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6}
+.f-content strong{color:#fff;font-weight:600}
+.f-goal{margin-top:5px;font-size:12px;color:var(--purple-bright);font-weight:600}
+
+/* ── REGIONAL ── */
+.rcard{border-radius:var(--radius-lg);overflow:hidden;background:var(--card-bg);box-shadow:var(--shadow)}
+.rhead{padding:1.1rem 1.4rem;display:flex;align-items:center;gap:10px}
+.rh-eu{background:linear-gradient(135deg,#1a0a4a,#2d1580)}
+.rh-ap{background:linear-gradient(135deg,#09031e,#0f5a50)}
+.rh-am{background:linear-gradient(135deg,#2d1580,#1a0a4a)}
+.rname{font-size:15px;font-weight:800;color:#fff}
+.rflag{font-size:20px}
+.rbody{padding:1.25rem 1.4rem}
+.rfocus-label{font-size:10px;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-muted);margin-bottom:6px;margin-top:12px}
+.rfocus-label:first-child{margin-top:0}
+.rtags{display:flex;flex-wrap:wrap;gap:5px}
+.rtag{font-size:11.5px;background:#f3f0ff;color:var(--purple-mid);border:1px solid #e0d9ff;border-radius:4px;padding:3px 8px;font-weight:500}
+.rtip{margin-top:12px;font-size:12.5px;color:var(--text-muted);background:#f3f0ff;border-left:3px solid var(--purple-bright);border-radius:0 4px 4px 0;padding:9px 12px;font-style:italic;line-height:1.55}
+
+/* ── CONTENT CARDS ── */
+.cc{background:var(--card-bg);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column;border:1px solid var(--card-border)}
+.cc:hover{box-shadow:var(--shadow-hover);transform:translateY(-3px)}
+.cc-img{width:100%;height:148px;object-fit:cover;background:#1a0a4a}
+.cc-ph{width:100%;height:148px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#3d22a0 0%,#6c3bff 60%,#2d1580 100%);position:relative;overflow:hidden}
+.cc-ph::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(0,212,200,0.18) 0%,transparent 65%)}
+.cc-ph span{font-size:12px;color:rgba(255,255,255,0.75);text-align:center;padding:0 1.5rem;font-weight:600;letter-spacing:0.3px;position:relative;z-index:1}
+.cc-body{padding:1.1rem;display:flex;flex-direction:column;flex:1}
+.cctags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px}
+.cctag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:50px;text-transform:uppercase;letter-spacing:0.3px}
+.t-lp{background:#ede9fe;color:#4c1d95}
+.t-blog{background:#dbeafe;color:#1e40af}
+.t-case{background:#dcfce7;color:#166534}
+.t-video{background:#fef3c7;color:#92400e}
+.t-kh{background:#ede9fe;color:var(--purple-mid)}
+.t-tofu{background:rgba(0,212,200,0.12);color:#0f766e}
+.t-mofu{background:#fef3c7;color:#92400e}
+.t-bofu{background:#ede9fe;color:#4c1d95}
+.cc-title{font-size:13.5px;font-weight:700;color:var(--text-dark);margin-bottom:7px;line-height:1.4}
+.cc-desc{font-size:12.5px;color:var(--text-muted);line-height:1.62;flex:1;margin-bottom:12px}
+.cc-btn{align-self:flex-start;font-size:12px;font-weight:700;color:var(--purple-bright);border:1.5px solid var(--purple-bright);padding:5px 14px;border-radius:50px;transition:all .15s}
+.cc-btn:hover{background:var(--purple-bright);color:#fff}
+
+/* dark variant */
+.cc-dark{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)}
+.cc-dark .cc-title{color:#fff}
+.cc-dark .cc-desc{color:rgba(255,255,255,0.58)}
+.cc-dark .cc-btn{color:var(--teal);border-color:var(--teal)}
+.cc-dark .cc-btn:hover{background:var(--teal);color:var(--purple-deep)}
+
+/* ── NURTURE ── */
+.ncard{background:var(--card-bg);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow)}
+.nhead{padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between}
+.nh-t{background:linear-gradient(135deg,#2d1580,var(--purple-bright))}
+.nh-m{background:linear-gradient(135deg,#92400e,#d97706)}
+.nh-b{background:linear-gradient(135deg,#1a0a4a,#2d1580)}
+.nlabel{font-size:15px;font-weight:800;color:#fff}
+.nbadge{font-size:10px;background:rgba(255,255,255,0.2);color:#fff;padding:3px 10px;border-radius:50px;font-weight:600}
+.nbody{padding:1.1rem 1.25rem}
+.nst{font-size:10px;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-muted);margin-bottom:5px;margin-top:12px}
+.nst:first-child{margin-top:0}
+.npurpose{font-size:13px;color:var(--text-muted);line-height:1.62}
+.nlist{list-style:none;padding:0}
+.nlist li{font-size:12.5px;color:var(--text-muted);padding:3px 0;display:flex;gap:6px}
+.nlist li::before{content:'›';color:var(--purple-bright);font-weight:700;flex-shrink:0;line-height:1.6}
+.triggers{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.trig{font-size:11.5px;background:#f3f0ff;color:var(--purple-mid);border:1px solid #e0d9ff;border-radius:4px;padding:2px 8px;font-weight:500}
+
+/* ── SHAREPOINT ── */
+.spcard{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:var(--radius);padding:1.25rem;transition:background .15s}
+.spcard:hover{background:rgba(108,59,255,0.15)}
+.spico{width:38px;height:38px;border-radius:var(--radius);background:rgba(108,59,255,0.25);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:10px}
+.spname{font-size:14px;font-weight:800;color:#fff;margin-bottom:5px}
+.spdesc{font-size:12.5px;color:rgba(255,255,255,0.5);margin-bottom:12px;line-height:1.55}
+.spbtn{display:inline-block;font-size:11.5px;font-weight:700;color:var(--purple-light);border:1px solid rgba(139,92,246,0.5);padding:5px 12px;border-radius:50px;transition:all .15s}
+.spbtn:hover{background:rgba(108,59,255,0.2);border-color:var(--purple-accent)}
+
+/* ── CTA FOOTER ── */
+.cta-sec{background:linear-gradient(135deg,#2d1580,var(--purple-bright));padding:5rem 1.25rem;text-align:center}
+.cta-inner{max-width:720px;margin:0 auto}
+.cta-inner h2{font-size:clamp(22px,3vw,34px);font-weight:800;color:#fff;margin-bottom:12px}
+.cta-inner p{font-size:15px;color:rgba(255,255,255,0.8);line-height:1.75;margin-bottom:2rem}
+.cta-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.btn-white{background:#fff;color:var(--purple-mid);font-weight:800}
+.btn-white:hover{background:#f3f0ff}
+.cta-note{margin-top:1.5rem;font-size:12.5px;color:rgba(255,255,255,0.5)}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  .nav-cta{display:none}
+  .sec-dark,.sec-mid,.sec-deepest,.sec-white,.cta-sec{padding:2.75rem 1rem}
+  .hero{padding:2.5rem 1rem 3rem}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .ga{grid-template-columns:1fr}
+  .ga-sm{grid-template-columns:repeat(2,1fr)}
+  .stat-grid,.stat-wrap{grid-template-columns:1fr;gap:1rem}
+  .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.1);padding:1.5rem 1rem}
+  .stat-item:last-child{border-bottom:none}
+  .stat-item.featured{margin:0;border-radius:var(--radius)}
+  .funnel-row{grid-template-columns:1fr;gap:6px}
+}
+@media(max-width:480px){
+  .ga-sm{grid-template-columns:1fr}
+  .hero h1{font-size:24px}
+  .hero-meta{gap:1.25rem}
+  .hm-val{font-size:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <svg class="nav-logo" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" rx="6" fill="#2d1580"/>
+        <path d="M7 23 C7 23 9.5 11 16 11 C22.5 11 25 23 25 23" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <circle cx="16" cy="9" r="2.5" fill="#00d4c8"/>
+        <path d="M12 23 L16 16 L20 23" stroke="#00d4c8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <div>
+        <div class="nav-brand-name">IFS Copperleaf</div>
+        <div class="nav-brand-sub">Water Campaign 2026</div>
+      </div>
+    </div>
+    <div class="nav-sep"></div>
+    <div class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#audience">Audience</a>
+      <a href="#challenges">Challenges</a>
+      <a href="#stats">Data</a>
+      <a href="#messaging">Messaging</a>
+      <a href="#funnel">Journey</a>
+      <a href="#regional">Regional</a>
+      <a href="#landing">Landing Pages</a>
+      <a href="#blogs">Blogs</a>
+      <a href="#cases">Case Studies</a>
+      <a href="#knowledge">Knowledge Hub</a>
+      <a href="#calendar">Calendar</a>
+      <a href="#nurture">Nurture</a>
+      <a href="#sharepoint">Assets</a>
+    </div>
+    <a href="https://www.copperleaf.com/landing-page/flow-to-the-future/" target="_blank" class="nav-cta">Flow to the Future →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-pills">
+      <span class="pill pill-purple">Global Always-On</span>
+      <span class="pill pill-teal">Water & Wastewater</span>
+      <span class="pill pill-white">2026</span>
+    </div>
+    <div class="hero-label">Campaign Portfolio & Activation Hub</div>
+    <h1>Optimize <em>Capital Planning</em><br>Across Your Water Infrastructure</h1>
+    <p class="hero-desc">An always-on global campaign positioning IFS Copperleaf as the trusted partner for water utilities navigating aging infrastructure, regulatory pressure, and growing investment complexity.</p>
+    <div class="hero-meta">
+      <div class="hm-item"><div class="hm-label">Objective</div><div class="hm-val">Brand Awareness + Lead Generation</div></div>
+      <div class="hm-item"><div class="hm-label">Duration</div><div class="hm-val">Always-On, Full Year 2026</div></div>
+      <div class="hm-item"><div class="hm-label">Regions</div><div class="hm-val">Europe · APJMEA · AMER</div></div>
+      <div class="hm-item"><div class="hm-label">Solution</div><div class="hm-val">IFS Copperleaf AIP + IFS ALM</div></div>
+    </div>
+    <div class="hero-ctas">
+      <a href="#landing" class="btn btn-primary">View Landing Pages</a>
+      <a href="#sharepoint" class="btn btn-teal">Asset Library</a>
+      <a href="#blogs" class="btn btn-outline">Browse Blogs</a>
+      <a href="#cases" class="btn btn-outline">Case Studies</a>
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<div id="overview" class="sec-dark">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Campaign Overview</div>
+    <h2 class="sec-title">Water & Wastewater Campaign</h2>
+    <div class="g4" style="margin-bottom:2rem">
+      <div class="scard"><div class="sl">Objective</div><div class="sv">Brand Awareness + Lead Gen</div></div>
+      <div class="scard"><div class="sl">Duration</div><div class="sv">Always-On, Full Year 2026</div></div>
+      <div class="scard"><div class="sl">Regions</div><div class="sv">Europe · APJMEA · AMER</div></div>
+      <div class="scard"><div class="sl">Solution</div><div class="sv">IFS Copperleaf AIP + ALM</div></div>
+    </div>
+    <p class="sec-body" style="margin-bottom:0">This global always-on campaign positions IFS Copperleaf as a trusted partner for water organizations navigating aging infrastructure, regulatory pressure, resource constraints, and growing investment complexity. Through pain-point-led content and full-funnel activation, the campaign demonstrates how data-driven planning improves outcomes, supports resilience, and enables confident capital investment decisions.</p>
+  </div>
+</div>
+
+<!-- AUDIENCE — INTERACTIVE PERSONA PAIN CHAIN -->
+<div id="audience" class="sec-mid">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Target Audience</div>
+    <h2 class="sec-title">Water &amp; Wastewater — Persona Pain Chain</h2>
+    <p class="sec-body">Select any persona to explore their core challenges and downstream business impact.</p>
+
+    <!-- TIER 1 -->
+    <div style="margin-bottom:24px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:rgba(255,255,255,0.4);margin-bottom:10px">Executive &amp; Strategic Leadership</div>
+      <div class="persona-grid" id="pg1">
+        <div class="pcard active" onclick="showPain('csuite')" id="pc-csuite"><div class="pabbr">CEO / MD</div><div class="pname">Chief Executive</div></div>
+        <div class="pcard" onclick="showPain('cfo')" id="pc-cfo"><div class="pabbr">CFO</div><div class="pname">Chief Financial Officer</div></div>
+        <div class="pcard" onclick="showPain('coo')" id="pc-coo"><div class="pabbr">COO</div><div class="pname">Chief Operating Officer</div></div>
+        <div class="pcard" onclick="showPain('cso')" id="pc-cso"><div class="pabbr">CSO</div><div class="pname">Chief Sustainability Officer</div></div>
+        <div class="pcard" onclick="showPain('cdo')" id="pc-cdo"><div class="pabbr">CDO / CIO</div><div class="pname">Chief Digital Officer</div></div>
+        <div class="pcard" onclick="showPain('cto')" id="pc-cto"><div class="pabbr">CTO</div><div class="pname">Chief Transformation Officer</div></div>
+      </div>
+    </div>
+
+    <!-- TIER 2 -->
+    <div style="margin-bottom:24px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:rgba(255,255,255,0.4);margin-bottom:10px">Strategic &amp; Planning Leadership</div>
+      <div class="persona-grid">
+        <div class="pcard" onclick="showPain('vp_am')" id="pc-vp_am"><div class="pabbr">VP / Director</div><div class="pname">Asset Management</div></div>
+        <div class="pcard" onclick="showPain('cap_plan')" id="pc-cap_plan"><div class="pabbr">Head of</div><div class="pname">Capital Planning</div></div>
+        <div class="pcard" onclick="showPain('portfolio')" id="pc-portfolio"><div class="pabbr">PM</div><div class="pname">Portfolio Manager</div></div>
+        <div class="pcard" onclick="showPain('reg')" id="pc-reg"><div class="pabbr">Reg / Strategy</div><div class="pname">Regulatory Lead</div></div>
+      </div>
+    </div>
+
+    <!-- TIER 3 -->
+    <div style="margin-bottom:24px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:rgba(255,255,255,0.4);margin-bottom:10px">Operational &amp; Technical Stakeholders</div>
+      <div class="persona-grid">
+        <div class="pcard" onclick="showPain('asset_mgr')" id="pc-asset_mgr"><div class="pabbr">AM</div><div class="pname">Asset Manager</div></div>
+        <div class="pcard" onclick="showPain('ops')" id="pc-ops"><div class="pabbr">M&amp;O</div><div class="pname">Maintenance &amp; Operations</div></div>
+        <div class="pcard" onclick="showPain('eng')" id="pc-eng"><div class="pabbr">Eng</div><div class="pname">Engineer / Reliability Lead</div></div>
+        <div class="pcard" onclick="showPain('risk')" id="pc-risk"><div class="pabbr">R&amp;C</div><div class="pname">Risk &amp; Compliance Manager</div></div>
+      </div>
+    </div>
+
+    <!-- DETAIL PANEL -->
+    <div class="ppanel" id="ppanel">
+      <div class="ppanel-title" id="pp-title">CEO / Managing Director</div>
+      <div class="ppanel-core" id="pp-core">Unable to confidently answer: "Are we investing in the right things to deliver long-term resilience and regulatory outcomes?"</div>
+      <div class="ppanel-cols">
+        <div class="ppanel-block">
+          <div class="ppanel-block-label">Challenges</div>
+          <ul class="ppanel-list" id="pp-challenges"></ul>
+        </div>
+        <div class="ppanel-block">
+          <div class="ppanel-block-label impact-label">Business Impact</div>
+          <ul class="ppanel-list impact-list" id="pp-impact"></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- UNIFYING PROBLEM -->
+    <div class="unify-bar">
+      <div class="unify-title">The unifying problem — across all personas</div>
+      <div class="unify-pills">
+        <span class="unify-pill">Decisions made in silos</span>
+        <span class="unify-pill">Value not consistently defined</span>
+        <span class="unify-pill">Trade-offs unclear</span>
+      </div>
+      <div class="unify-body">Water organizations cannot confidently align capital investment decisions with long-term outcomes like resilience, affordability, and sustainability.</div>
+    </div>
+
+    <!-- VALUE BAR -->
+    <div class="value-bar">
+      <div class="value-bar-label">IFS Copperleaf — value-based approach</div>
+      <div class="value-pills">
+        <span class="value-pill">Align investment with strategy</span>
+        <span class="value-pill">Quantify risk, cost &amp; ESG</span>
+        <span class="value-pill">Optimize capital plans</span>
+        <span class="value-pill">Defend plans to regulators</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+.persona-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:9px}
+.pcard{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:12px 14px;cursor:pointer;transition:border-color .15s,background .15s}
+.pcard:hover{border-color:var(--purple-bright);background:rgba(108,59,255,0.15)}
+.pcard.active{border:2px solid var(--purple-bright);background:rgba(108,59,255,0.22)}
+.pabbr{font-size:10.5px;font-weight:700;color:var(--purple-light);margin-bottom:3px;letter-spacing:0.3px}
+.pname{font-size:13px;font-weight:600;color:#fff;line-height:1.3}
+.ppanel{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:20px 22px;margin-bottom:14px}
+.ppanel-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:10px}
+.ppanel-core{font-size:13px;color:var(--purple-light);font-weight:500;background:rgba(108,59,255,0.2);border:1px solid rgba(108,59,255,0.3);padding:10px 14px;border-radius:8px;line-height:1.5;margin-bottom:16px}
+.ppanel-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ppanel-block-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.4);margin-bottom:8px}
+.impact-label{color:rgba(255,180,180,0.5)}
+.ppanel-list{list-style:none;padding:0}
+.ppanel-list li{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.55;padding:4px 0 4px 16px;position:relative}
+.ppanel-list li::before{content:'';position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--purple-accent)}
+.impact-list li::before{background:#f87171}
+.unify-bar{background:rgba(26,10,74,0.9);border:1px solid rgba(108,59,255,0.3);border-radius:12px;padding:18px 22px;margin-bottom:12px}
+.unify-title{font-size:14px;font-weight:700;color:var(--purple-light);margin-bottom:10px}
+.unify-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.unify-pill{background:rgba(108,59,255,0.3);color:var(--purple-light);font-size:12px;padding:5px 12px;border-radius:50px;border:1px solid rgba(108,59,255,0.4)}
+.unify-body{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;border-top:1px solid rgba(108,59,255,0.2);padding-top:10px;margin-top:4px}
+.value-bar{background:rgba(15,90,70,0.6);border:1px solid rgba(0,212,200,0.25);border-radius:12px;padding:16px 22px}
+.value-bar-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--teal);margin-bottom:10px}
+.value-pills{display:flex;gap:8px;flex-wrap:wrap}
+.value-pill{background:rgba(8,80,65,0.8);color:#5dcaa5;font-size:12px;padding:5px 12px;border-radius:50px;border:1px solid rgba(0,212,200,0.2)}
+@media(max-width:600px){.ppanel-cols{grid-template-columns:1fr}}
+</style>
+
+<script>
+const pains={
+  csuite:{title:"CEO / Managing Director",core:"Unable to confidently answer: \"Are we investing in the right things to deliver long-term resilience and regulatory outcomes?\"",challenges:["No visibility into long-term risk and investment impact","Difficulty aligning capital plans with ESG and net zero targets","Regulatory pressure with limited defensibility of plans","Trade-offs between cost, risk, and service outcomes are unclear"],impact:["Delayed or reduced regulatory approvals","Missed ESG and resilience targets","Erosion of stakeholder and public trust"]},
+  cfo:{title:"CFO — Chief Financial Officer",core:"No consistent framework to evaluate and compare investments across the enterprise on a common financial basis.",challenges:["No common language between finance and engineering","Difficulty justifying budgets and rate cases to regulators","Cannot compare ESG vs. business-as-usual investments","Limited visibility into long-term capital needs and cash flow"],impact:["Poor capital efficiency across the asset base","Over or under-investment across asset classes","Reduced confidence in funding and budget decisions"]},
+  coo:{title:"COO — Chief Operating Officer",core:"Operational performance is undermined by fragmented planning and reactive asset management across the network.",challenges:["Cannot balance cost efficiency with service reliability","Limited forward visibility into asset-driven operational risk","Planning cycles too slow to respond to real-world changes","Siloed data between operations and capital planning teams"],impact:["Increased unplanned outages and service disruptions","Higher operational costs from reactive responses","Missed service level commitments to regulators"]},
+  cso:{title:"CSO — Chief Sustainability Officer",core:"Sustainability commitments cannot be translated into defensible, funded capital investment decisions.",challenges:["ESG targets not integrated into investment frameworks","No way to model climate risk or net zero pathways","Cannot compare sustainability value of competing projects","Reporting obligations with insufficient data linkage"],impact:["Missed net zero and resilience targets","Reputational risk from unmet public commitments","Loss of green funding and regulatory goodwill"]},
+  cdo:{title:"CDO / CIO — Chief Digital Officer",core:"Digital transformation investments cannot demonstrate clear linkage to operational or capital planning outcomes.",challenges:["Siloed data systems across asset, finance, and operations","No unified platform for capital decision analytics","Difficulty driving adoption of data-driven planning","Legacy tools limiting strategic modelling capability"],impact:["Digital initiatives fail to deliver expected value","Low confidence in data-driven investment decisions","Slow transformation programme velocity"]},
+  cto:{title:"CTO — Chief Transformation Officer",core:"Transformation initiatives lack a shared framework for prioritising investment value and measuring outcomes.",challenges:["Fragmented change programmes without unified value criteria","Resistance from operational teams without a shared planning language","Difficulty demonstrating ROI of transformation investments","Plans not connected to long-term asset and risk strategy"],impact:["Transformation fatigue and low adoption rates","Inability to justify continued investment in change","Strategic transformation outcomes remain undelivered"]},
+  vp_am:{title:"VP / Director — Asset Management",core:"Cannot build a long-term plan that consistently balances cost, risk, and performance across the full asset base.",challenges:["Siloed planning across business units and departments","No long-term view (5–50 years) of asset investment needs","Difficulty modelling climate and infrastructure resilience scenarios","Manual, time-consuming planning cycles with limited optimisation"],impact:["Reactive interventions instead of proactive investment","Inconsistent delivery of service and performance targets","Plans that are not executable or fundable at approval"]},
+  cap_plan:{title:"Head of Capital Planning",core:"Capital plans are built on incomplete data and cannot be optimised against real-world budget and risk constraints.",challenges:["No optimisation capability across competing investment options","Manual scenario modelling limits speed and accuracy","Difficulty integrating risk, cost, and performance data","Inconsistent criteria used by different planning teams"],impact:["Suboptimal capital allocation across the portfolio","Plans rejected or delayed at funding approval","Inability to respond quickly to budget changes or regulatory shifts"]},
+  portfolio:{title:"Portfolio Manager",core:"No consistent framework for evaluating and ranking projects across a complex, multi-asset portfolio.",challenges:["Competing investment priorities with no objective ranking","Difficulty demonstrating portfolio-level risk exposure","Limited scenario analysis for budget constraint modelling","Inconsistent data inputs from different asset classes"],impact:["High-value projects deprioritised in favour of louder ones","Portfolio risk not visible to senior leadership","Funding decisions made on incomplete or inconsistent information"]},
+  reg:{title:"Regulatory / Strategy Lead",core:"Unable to clearly communicate and defend investment decisions to regulators with consistent evidence.",challenges:["Subjective or inconsistent risk and value assessments","Limited ability to quantify risk exposure in financial terms","Difficulty demonstrating impact of funding changes on outcomes","No audit trail linking investment decisions to strategic objectives"],impact:["Increased regulatory scrutiny and challenge","Longer approval and submission cycles","Reduced or delayed funding approvals and rate case outcomes"]},
+  asset_mgr:{title:"Asset Manager",core:"Managing aging assets without adequate forward visibility — absorbing the consequences of poor upstream planning.",challenges:["High and increasing levels of reactive maintenance","Aging assets with accelerating failure rates","No predictive risk scoring to prioritise interventions","Limited input into the strategic capital planning process"],impact:["Increased asset failures and network outage events","Higher maintenance costs driven by reactive responses","Asset performance below target life expectations"]},
+  ops:{title:"Maintenance & Operations Leader",core:"Operational teams bear the cost and consequences of decisions made upstream without their input.",challenges:["Resource constraints and inefficient scheduling","Poor data linkage between work orders and asset condition","Reactive workload driven by upstream planning failures","Limited visibility of planned capital interventions ahead of time"],impact:["Higher OPEX from unplanned and reactive maintenance","Reduced workforce efficiency and team morale","Unpredictable workload spikes that strain capacity"]},
+  eng:{title:"Engineer / Reliability Lead",core:"Technical knowledge and field expertise are not consistently translated into funded investment priorities.",challenges:["Engineering judgement overridden by non-technical decision makers","No framework to express risk in financial or strategic terms","Difficulty influencing capital planning with technical data","Inconsistent condition assessment standards across the business"],impact:["Poor investment decisions on safety-critical assets","Reliability issues not identified until failure occurs","Technical teams disengaged from planning process"]},
+  risk:{title:"Risk & Compliance Manager",core:"Risk assessments are inconsistent, subjective, and disconnected from investment or operational decisions.",challenges:["No enterprise risk framework for infrastructure investment","Qualitative risk assessments that vary by team or region","Difficulty demonstrating regulatory compliance with evidence","Limited ability to model risk reduction from investment scenarios"],impact:["Unquantified risk exposure at board and regulator level","Regulatory non-compliance events and enforcement action","Inability to prioritise or justify risk mitigation investment"]}
+};
+function showPain(k){
+  document.querySelectorAll('.pcard').forEach(c=>c.classList.remove('active'));
+  const card=document.getElementById('pc-'+k);
+  if(card)card.classList.add('active');
+  const d=pains[k];
+  document.getElementById('pp-title').textContent=d.title;
+  document.getElementById('pp-core').textContent=d.core;
+  document.getElementById('pp-challenges').innerHTML=d.challenges.map(c=>`<li>${c}</li>`).join('');
+  document.getElementById('pp-impact').innerHTML=d.impact.map(i=>`<li>${i}</li>`).join('');
+  document.getElementById('ppanel').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+showPain('csuite');
+</script>
+
+<!-- CHALLENGES -->
+<div id="challenges" class="sec-deepest">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Industry Challenges</div>
+    <h2 class="sec-title">Better Capital Decisions.<br><em>Stronger Infrastructure Outcomes.</em></h2>
+    <p class="sec-body">Five critical pressures facing water utilities today — each directly addressed through the campaign's pain-point-led content strategy.</p>
+    <div class="ga">
+      <div class="chal-card"><div class="chal-num">01</div><div class="chal-bar"></div><div class="chal-title">Aging Infrastructure</div><div class="chal-desc">Water networks are operating beyond intended lifespan, increasing risk of failures, leaks, service disruption, and unplanned maintenance costs.</div></div>
+      <div class="chal-card"><div class="chal-num">02</div><div class="chal-bar"></div><div class="chal-title">Resource Scarcity</div><div class="chal-desc">Drought, population growth, environmental stress, and supply constraints force utilities to make smarter, longer-term investment decisions.</div></div>
+      <div class="chal-card"><div class="chal-num">03</div><div class="chal-bar"></div><div class="chal-title">Regulatory Pressure</div><div class="chal-desc">Utilities face growing requirements for transparent, evidence-based, and sustainability-aligned planning and investment justification.</div></div>
+      <div class="chal-card"><div class="chal-num">04</div><div class="chal-bar"></div><div class="chal-title">Siloed Decision-Making</div><div class="chal-desc">Disconnected systems and fragmented data make it difficult to prioritize investments consistently across the enterprise.</div></div>
+      <div class="chal-card"><div class="chal-num">05</div><div class="chal-bar"></div><div class="chal-title">Public Accountability</div><div class="chal-desc">Water organizations must demonstrate responsible stewardship of public funds while delivering measurable outcomes for customers and regulators.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div id="stats" class="sec-mid">
+  <div class="sec-inner" style="text-align:center">
+    <div class="sec-eyebrow" style="text-align:center">The Data Is Clear</div>
+    <h2 class="sec-title" style="text-align:center;max-width:780px;margin:0 auto 14px">Utilities That Modernize Capital Planning Outperform</h2>
+    <p class="sec-body" style="margin:0 auto 2.5rem;text-align:center">Independent IDC research confirms organizations using IFS Copperleaf achieve significant improvements in capital efficiency, risk mitigation, and planning speed.</p>
+    <div class="stat-grid">
+      <div class="stat-item"><div class="stat-num">469%</div><div class="stat-label">Three-year ROI with an 11-month payback period</div></div>
+      <div class="stat-item featured"><div class="stat-num">$17.5M</div><div class="stat-label">average annual benefits per organization</div></div>
+      <div class="stat-item"><div class="stat-num">17%</div><div class="stat-label">more efficient capital planning and management teams</div></div>
+    </div>
+    <div class="stat-wrap">
+      <div class="stat-item" style="border-right:1px solid rgba(255,255,255,0.1)"><div class="stat-num" style="font-size:clamp(28px,4vw,48px)">55%</div><div class="stat-label">greater efficiency when shifting capital across priorities</div></div>
+      <div class="stat-item" style="border-right:1px solid rgba(255,255,255,0.1)"><div class="stat-num" style="font-size:clamp(28px,4vw,48px)">18%</div><div class="stat-label">improvement in asset manager productivity</div></div>
+      <div class="stat-item"><div class="stat-num" style="font-size:clamp(28px,4vw,48px)">$2.9T</div><div class="stat-label">in assets managed globally by IFS Copperleaf clients</div></div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <a href="https://www.copperleaf.com/knowledge-hub/idc-business-value-report/" target="_blank" class="btn btn-teal" style="padding:12px 28px;font-size:14px;border-radius:50px;display:inline-flex;align-items:center;gap:8px">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1.5a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13zm0 1a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11zm.5 2.5v3.25l2.25 1.3-.5.87-2.75-1.62V5h1z" fill="currentColor"/></svg>
+        Download the Full IDC Report
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- MESSAGING -->
+<div id="messaging" class="sec-white">
+  <div class="sec-inner">
+    <div class="sec-eyebrow" style="color:var(--purple-bright)">Core Campaign Messaging</div>
+    <h2 class="sec-title-dark">Three Strategic <em style="font-style:normal;color:var(--purple-bright)">Messages</em></h2>
+    <p class="sec-body-dark">Every campaign touchpoint is anchored to these three core messages — each directly tied to the planning challenges water executives face.</p>
+    <div class="g3">
+      <div class="mcard"><div class="mnum">Message 01</div><div class="mtitle">Prioritize the Right Investments at the Right Time</div><div class="mdesc">Align capital plans to organizational strategy and make smarter decisions about which projects to fund, when to fund them, and why.</div></div>
+      <div class="mcard"><div class="mnum">Message 02</div><div class="mtitle">Balance Risk, Cost, and Performance</div><div class="mdesc">Replace intuition-led planning with defensible, data-driven investment decisions that weigh trade-offs across risk exposure, cost efficiency, and asset performance.</div></div>
+      <div class="mcard"><div class="mnum">Message 03</div><div class="mtitle">Enable Proactive, Data-Driven Decision-Making</div><div class="mdesc">Move from reactive planning to strategic investment management through an integrated, transparent, and evidence-based decision framework.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FUNNEL -->
+<div id="funnel" class="sec-dark">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Campaign Journey</div>
+    <h2 class="sec-title">Full-Funnel Activation Model</h2>
+    <p class="sec-body">The campaign moves audiences through a structured journey from initial awareness to sales-ready conversion — with defined tactics, content types, and goals at every stage.</p>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="funnel-row"><div><div class="f-stage">Awareness</div></div><span class="ftag ft-tofu">TOFU</span><div class="f-content"><strong>Channels:</strong> Paid ads, LinkedIn sponsored content, Demandbase display, LinkedIn carousels<div class="f-goal">→ Drive targeted traffic to campaign landing pages</div></div></div>
+      <div class="funnel-row"><div><div class="f-stage">Educate</div></div><span class="ftag ft-tofu">TOFU</span><div class="f-content"><strong>Content:</strong> Blogs, videos, campaign landing pages, hero content assets<div class="f-goal">→ Build credibility and educate audiences on sector challenges and solutions</div></div></div>
+      <div class="funnel-row"><div><div class="f-stage">Engage</div></div><span class="ftag ft-mofu">MOFU</span><div class="f-content"><strong>Content:</strong> White papers, gated assets, brochures, industry reports<div class="f-goal">→ Capture leads and qualify intent through high-value gated content</div></div></div>
+      <div class="funnel-row"><div><div class="f-stage">Nurture</div></div><span class="ftag ft-mofu">MOFU</span><div class="f-content"><strong>Channels:</strong> Marketo nurture streams, case studies, webinars, solution explainers<div class="f-goal">→ Deepen engagement and progress leads toward a purchase decision</div></div></div>
+      <div class="funnel-row"><div><div class="f-stage">Convert</div></div><span class="ftag ft-bofu">BOFU</span><div class="f-content"><strong>Tactics:</strong> ROI tools, demo CTAs, sales enablement decks, ABM outreach<div class="f-goal">→ Convert MQLs into qualified sales conversations</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- REGIONAL -->
+<div id="regional" class="sec-white">
+  <div class="sec-inner">
+    <div class="sec-eyebrow" style="color:var(--purple-bright)">Regional Activation</div>
+    <h2 class="sec-title-dark">Localizing the Campaign <em style="font-style:normal;color:var(--purple-bright)">by Region</em></h2>
+    <p class="sec-body-dark">The global framework is designed for regional localization. Each region has distinct focus areas, recommended assets, and activation guidance.</p>
+    <div class="g3">
+      <div class="rcard"><div class="rhead rh-eu"><span class="rflag">🇪🇺</span><span class="rname">Europe</span></div><div class="rbody"><div class="rfocus-label">Focus Areas</div><div class="rtags"><span class="rtag">Regulatory compliance</span><span class="rtag">EU water directives</span><span class="rtag">Aging infrastructure</span></div><div class="rfocus-label">Recommended Assets</div><div class="rtags"><span class="rtag">Regulatory blogs</span><span class="rtag">Compliance white papers</span><span class="rtag">UK / DACH / Nordics LinkedIn</span></div><div class="rtip">Localize nurture sequences for priority markets across UK, DACH, and the Nordics.</div></div></div>
+      <div class="rcard"><div class="rhead rh-ap"><span class="rflag">🌏</span><span class="rname">APJMEA</span></div><div class="rbody"><div class="rfocus-label">Focus Areas</div><div class="rtags"><span class="rtag">Resource scarcity</span><span class="rtag">Rapid urbanization</span><span class="rtag">Sustainability</span></div><div class="rfocus-label">Recommended Assets</div><div class="rtags"><span class="rtag">Scarcity blogs</span><span class="rtag">ROI tools</span><span class="rtag">Regional case studies</span></div><div class="rtip">Adapt messaging around water scarcity, resilience, and sustainability for regional relevance.</div></div></div>
+      <div class="rcard"><div class="rhead rh-am"><span class="rflag">🌎</span><span class="rname">AMER</span></div><div class="rbody"><div class="rfocus-label">Focus Areas</div><div class="rtags"><span class="rtag">Aging infrastructure</span><span class="rtag">Public accountability</span><span class="rtag">Capital transparency</span></div><div class="rfocus-label">Recommended Assets</div><div class="rtags"><span class="rtag">Public sector case studies</span><span class="rtag">ROI tools</span><span class="rtag">ABM outreach</span></div><div class="rtip">Use ABM and coordinated sales outreach to engage strategic accounts in priority markets.</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- LANDING PAGES -->
+<div id="landing" class="sec-dark">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Campaign Landing Pages</div>
+    <h2 class="sec-title">Primary Campaign Destinations</h2>
+    <p class="sec-body">Dedicated landing pages built for different audience entry points and campaign channels — use these in paid media, email campaigns, and ABM outreach.</p>
+    <div class="g3">
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2022/06/Hero_WaterPlant_1920x600-1200x350.jpg" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="cc-ph" style="display:none"><span>Flow to the Future</span></div><div class="cc-body"><div class="cctags"><span class="cctag t-lp">Landing Page</span><span class="cctag t-tofu">TOFU</span></div><div class="cc-title">Flow to the Future</div><div class="cc-desc">Main campaign landing page helping water utilities navigate investment, infrastructure, and resilience challenges with IFS Copperleaf.</div><a href="https://www.copperleaf.com/landing-page/flow-to-the-future/" target="_blank" class="cc-btn">Visit Page →</a></div></div>
+      <div class="cc"><div class="cc-ph" style="display:flex"><span>Folloze ABM Experience</span></div><div class="cc-body"><div class="cctags"><span class="cctag t-lp">Landing Page</span><span class="cctag t-mofu">MOFU</span></div><div class="cc-title">Folloze Campaign Experience</div><div class="cc-desc">Personalized Folloze experience for campaign engagement and targeted account-based journey orchestration across strategic accounts.</div><a href="https://engage.copperleaf.com/bd6ca8" target="_blank" class="cc-btn">Visit Page →</a></div></div>
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2026/02/Water-Landing-Page-Brochure-.png" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="cc-ph" style="display:none"><span>Knowledge Hub</span></div><div class="cc-body"><div class="cctags"><span class="cctag t-kh">Knowledge Hub</span><span class="cctag t-mofu">MOFU</span></div><div class="cc-title">Investing with Confidence in Water Infrastructure</div><div class="cc-desc">Knowledge hub destination focused on long-term water infrastructure investment planning for today and future generations.</div><a href="https://www.copperleaf.com/knowledge-hub/capital_planning_for_water_utilities/" target="_blank" class="cc-btn">Visit Page →</a></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- BLOGS -->
+<div id="blogs" class="sec-white">
+  <div class="sec-inner">
+    <div class="sec-eyebrow" style="color:var(--purple-bright)">Blog Content</div>
+    <h2 class="sec-title-dark">Campaign <em style="font-style:normal;color:var(--purple-bright)">Blog Library</em></h2>
+    <p class="sec-body-dark">A full library of water-sector content spanning asset decisions, capital planning, infrastructure risk, AMP8 compliance, and utility transformation.</p>
+    <div class="ga">
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2026/03/Water-blog-banner-.png" alt="" loading="lazy" onerror="this.style.display='none'"><div class="cc-body"><div class="cctags"><span class="cctag t-blog">Blog</span><span class="cctag t-tofu">TOFU</span></div><div class="cc-title">How to Make Better Asset Decisions with Imperfect Data</div><div class="cc-desc">Practical guidance on building robust investment decisions even when data is incomplete, inconsistent, or unreliable.</div><a href="https://www.copperleaf.com/blog/how-to-make-better-asset-decisions-with-imperfect-data/" target="_blank" class="cc-btn">Read →</a></div></div>
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2026/03/Water-blog-6.png" alt="" loading="lazy" onerror="this.style.display='none'"><div class="cc-body"><div class="cctags"><span class="cctag t-blog">Blog</span><span class="cctag t-mofu">MOFU</span></div><div class="cc-title">Mastering Adaptive Capital Planning in Water Utilities</div><div class="cc-desc">How water utilities can build capital plans that flex with shifting priorities, budgets, and regulatory demands.</div><a href="https://www.copperleaf.com/blog/mastering-adaptive-capital-planning-in-water-utilities/" target="_blank" class="cc-btn">Read →</a></div></div>
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2026/02/Water-Blog-5-Banner.png" alt="" loading="lazy" onerror="this.style.display='none'"><div class="cc-body"><div class="cctags"><span class="cctag t-blog">Blog</span><span class="cctag t-mofu">MOFU</span></div><div class="cc-title">Water Utility Scenario Planning: Balancing Budgets</div><div class="cc-desc">How scenario planning tools help utilities weigh competing investment priorities without compromising financial discipline.</div><a href="https://www.copperleaf.com/blog/water-utility-scenario-planning-balancing-budgets/" target="_blank" class="cc-btn">Read →</a></div></div>
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2026/02/Water-Blog-4-.png" alt="" loading="lazy" onerror="this.style.display='none'"><div class="cc-body"><div class="cctags"><span class="cctag t-blog">Blog</span><span class="cctag t-tofu">TOFU</span></div><div class="cc-title">Aging Water Infrastructure: How to Mitigate Risks</div><div class="cc-desc">How utilities can move from reactive maintenance to proactive, risk-informed investment in aging assets.</div><a href="https://www.copperleaf.com/blog/aging-water-infrastructure-how-to-mitigate-risks/" target="_blank" class="cc-btn">Read →</a></div></div>
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2025/12/Water-Blog-3.png" alt="" loading="lazy" onerror="this.style.display='none'"><div class="cc-body"><div class="cctags"><span class="cctag t-blog">Blog</span><span class="cctag t-mofu">MOFU</span></div><div class="cc-title">Three Strategic Questions Every Water Executive Can Now Answer</div><div class="cc-desc">The key investment planning questions that C-suite leaders can now answer confidently with data-driven tools.</div><a href="https://www.copperleaf.com/blog/strategic-questions-for-water-executives/" target="_blank" class="cc-btn">Read →</a></div></div>
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2025/10/WATER-BLOG-2.png" alt="" loading="lazy" onerror="this.style.display='none'"><div class="cc-body"><div class="cctags"><span class="cctag t-blog">Blog</span><span class="cctag t-tofu">TOFU</span></div><div class="cc-title">From Crisis to Control: Transforming Water Infrastructure Planning</div><div class="cc-desc">How IFS Copperleaf helps water organizations shift from crisis-led response to structured, long-term planning.</div><a href="https://www.copperleaf.com/blog/water-infrastructure-planning-ifs-copperleaf/" target="_blank" class="cc-btn">Read →</a></div></div>
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2025/08/IFSCopperleaf_Water02_1920x1080px_06-25-1920x500.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><div class="cc-body"><div class="cctags"><span class="cctag t-blog">Blog</span><span class="cctag t-case">Customer Story</span></div><div class="cc-title">Interview: How South Staffs Water Modernized Investment Planning</div><div class="cc-desc">A first-hand account of how South Staffs Water transformed their investment planning process with IFS Copperleaf.</div><a href="https://www.copperleaf.com/blog/interview-how-south-staff-water-modernized-investment-planning-with-ifs-copperleaf/" target="_blank" class="cc-btn">Read →</a></div></div>
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2025/10/Website-blog-banner-970-x-250-1.png" alt="" loading="lazy" onerror="this.style.display='none'"><div class="cc-body"><div class="cctags"><span class="cctag t-blog">Blog</span><span class="cctag t-tofu">TOFU</span></div><div class="cc-title">Flowing into the Future: How Water Utilities Can Overcome Challenges</div><div class="cc-desc">An overview of the most pressing challenges water utilities face and how IFS Copperleaf enables a path forward.</div><a href="https://www.copperleaf.com/blog/flowing-into-the-future-water-utilities-overcoming-challenges-with-ifs-copperleaf/" target="_blank" class="cc-btn">Read →</a></div></div>
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2022/06/1920x500_watertreament01-v1-2.webp" alt="" loading="lazy" onerror="this.style.display='none'"><div class="cc-body"><div class="cctags"><span class="cctag t-blog">Blog</span><span class="cctag t-mofu">MOFU</span></div><div class="cc-title">Feature Article: How AIP Maps the Future of AMP8</div><div class="cc-desc">How AIP positions UK water companies to navigate the most ambitious regulatory investment period in their history.</div><a href="https://www.copperleaf.com/blog/feature-article-how-asset-investment-planning-maps-the-future-of-amp8/" target="_blank" class="cc-btn">Read →</a></div></div>
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2023/05/1920x500_Water-Indaba-1920x500.webp" alt="" loading="lazy" onerror="this.style.display='none'"><div class="cc-body"><div class="cctags"><span class="cctag t-blog">Blog</span><span class="cctag t-tofu">TOFU</span></div><div class="cc-title">Event Recap: Flowing to the Future with Water Community Indaba</div><div class="cc-desc">Key insights and highlights from the Water Community Indaba event, connecting the global water sector around shared challenges.</div><a href="https://www.copperleaf.com/blog/event-recap-flowing-to-the-future-with-water-community-indaba/" target="_blank" class="cc-btn">Read →</a></div></div>
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2022/06/1920x500_WaterTreatment03webp-1.webp" alt="" loading="lazy" onerror="this.style.display='none'"><div class="cc-body"><div class="cctags"><span class="cctag t-blog">Blog</span><span class="cctag t-mofu">MOFU</span></div><div class="cc-title">Preparing for AMP8: Supporting UK Water Companies</div><div class="cc-desc">How Copperleaf enables UK water companies to plan and deliver the largest-ever capital investment period with confidence.</div><a href="https://www.copperleaf.com/blog/preparing-for-amp8-copperleaf-supporting-uk-water-companies-during-the-largest-ever-investment-period/" target="_blank" class="cc-btn">Read →</a></div></div>
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2022/06/1920x500_watertreament02-v1.webp" alt="" loading="lazy" onerror="this.style.display='none'"><div class="cc-body"><div class="cctags"><span class="cctag t-blog">Blog</span><span class="cctag t-tofu">TOFU</span></div><div class="cc-title">Collaborating for Climate Resilience: Data-Driven Asset Management</div><div class="cc-desc">How data-driven asset management supports cross-sector collaboration and builds climate resilience for water organizations.</div><a href="https://www.copperleaf.com/blog/collaborating-for-climate-resilience-the-value-in-data-driven-asset-management/" target="_blank" class="cc-btn">Read →</a></div></div>
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2022/06/1920x500_watertreament01-v2.webp" alt="" loading="lazy" onerror="this.style.display='none'"><div class="cc-body"><div class="cctags"><span class="cctag t-blog">Blog</span><span class="cctag t-case">Guest Post</span></div><div class="cc-title">Guest Post: South Staffs Water – Optimising Investment Needs</div><div class="cc-desc">A practitioner's perspective on how South Staffs Water uses Copperleaf to optimize investment planning at scale.</div><a href="https://www.copperleaf.com/blog/guest-post-south-staffs-water-optimising-our-investment-needs-with-copperleaf/" target="_blank" class="cc-btn">Read →</a></div></div>
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2022/06/1920x500_watertreament01-v1-2.webp" alt="" loading="lazy" onerror="this.style.display='none'"><div class="cc-body"><div class="cctags"><span class="cctag t-blog">Blog</span><span class="cctag t-case">Guest Post</span></div><div class="cc-title">Guest Post: Northumbrian Water Group's AMP7 Acceleration Project</div><div class="cc-desc">How Northumbrian Water partnered with Copperleaf and AMCL to accelerate AMP7 investment planning and delivery.</div><a href="https://www.copperleaf.com/blog/guest-post-northumbrian-water-groups-amp7-acceleration-project-with-copperleaf-and-amcl/" target="_blank" class="cc-btn">Read →</a></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CASE STUDIES -->
+<div id="cases" class="sec-dark">
+  <div class="sec-inner">
+    <div class="sec-eyebrow">Case Studies & Customer Proof</div>
+    <h2 class="sec-title">Proven Outcomes in the Water Sector</h2>
+    <p class="sec-body">Real-world evidence of how leading water utilities are transforming investment planning and delivering measurable outcomes with IFS Copperleaf.</p>
+    <div class="ga">
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2022/09/1920x500_CopperGlobe-2.webp" alt="" loading="lazy" onerror="this.style.display='none'"><div class="cc-body"><div class="cctags"><span class="cctag t-case">Case Study</span><span class="cctag" style="background:#f3e8ff;color:#7c3aed">ESG</span></div><div class="cc-title">Spotlight on ESG: Anglian Water</div><div class="cc-desc">How Anglian Water integrates ESG objectives into investment planning to deliver on sustainability commitments and demonstrate stakeholder accountability.</div><a href="https://www.copperleaf.com/knowledge-hub/spotlight-on-esg-anglian-water/" target="_blank" class="cc-btn">View →</a></div></div>
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2022/09/case-study-video-anglian-water.webp" alt="" loading="lazy" onerror="this.style.display='none'"><div class="cc-body"><div class="cctags"><span class="cctag t-video">Video</span><span class="cctag t-case">Case Study</span></div><div class="cc-title">Case Study Video: Anglian Water</div><div class="cc-desc">A video deep-dive into how Anglian Water uses IFS Copperleaf to transform capital planning and improve investment decision quality.</div><a href="https://www.copperleaf.com/knowledge-hub/case-study-video-anglian-water/" target="_blank" class="cc-btn">Watch →</a></div></div>
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2019/02/continuous-investment-optimization-and-planning-at-anglian-water-1.webp" alt="" loading="lazy" onerror="this.style.display='none'"><div class="cc-body"><div class="cctags"><span class="cctag t-case">Case Study</span><span class="cctag t-mofu">MOFU</span></div><div class="cc-title">Continuous Investment Optimization at Anglian Water</div><div class="cc-desc">How Anglian Water uses continuous investment optimization to adapt capital plans in real time across an extensive and aging asset network.</div><a href="https://www.copperleaf.com/knowledge-hub/continuous-investment-optimization-and-planning-at-anglian-water/" target="_blank" class="cc-btn">View →</a></div></div>
+      <div class="cc"><img class="cc-img" src="https://d6a9a6a4.delivery.rocketcdn.me/wp-content/uploads/2022/06/1920x500_watertower-v1-1.webp" alt="" loading="lazy" onerror="this.style.display='none'"><div class="cc-body"><div class="cctags"><span class="cctag t-case">Case Study</span><span class="cctag t-bofu">BOFU</span></div><div class="cc-title">How United Utilities Optimises Asset Investment Planning</div><div class="cc-desc">How United Utilities partnered with IFS Copperleaf to deliver evidence-based, optimized capital investment planning across their portfolio.</div><a href="https://www.copperleaf.com/blog/case-study-how-united-utilities-optimises-asset-investment-planning/" target="_blank" class="cc-btn">View →</a></div></div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- CAMPAIGN CALENDAR -->
+<div id="calendar" class="sec-white">
+  <div class="sec-inner">
+    <div class="sec-eyebrow" style="color:var(--purple-bright)">Campaign Calendar</div>
+    <h2 class="sec-title-dark">Campaign <em style="font-style:normal;color:var(--purple-bright)">Timeline</em></h2>
+    <p class="sec-body-dark">A full view of campaign activations, content launches, and platform deployments across the always-on programme.</p>
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+      <table style="width:100%;border-collapse:collapse;font-size:13.5px;min-width:600px">
+        <thead>
+          <tr style="border-bottom:2px solid #e0d9ff">
+            <th style="text-align:left;padding:10px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--purple-mid);width:160px">Date</th>
+            <th style="text-align:left;padding:10px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--purple-mid);width:150px">Platform</th>
+            <th style="text-align:left;padding:10px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--purple-mid)">Campaign / Content</th>
+          </tr>
+        </thead>
+        <tbody id="cal-body"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+const calData=[
+  {date:"Oct 2025 – Dec 2026",platform:"LinkedIn",content:"<strong>Paid Social — Website Visits</strong> — campaign launches, always-on"},
+  {date:"Oct 2025 – Dec 2026",platform:"Demandbase",content:"<strong>Programmatic Display</strong> — water target accounts activated"},
+  {date:"Oct 2025",platform:"LinkedIn",content:"<strong>Opening Carousel</strong> — visual story introducing the Water campaign"},
+  {date:"Oct 2025",platform:"Website",content:"<strong>Blog 01 — Flowing into the Future</strong> — How Water Utilities Can Overcome Challenges with IFS Copperleaf"},
+  {date:"Nov 2025",platform:"Website",content:"<strong>Blog 02 — From Crisis to Control</strong> — Transforming Water Infrastructure Planning with IFS Copperleaf"},
+  {date:"Dec 2025",platform:"Website",content:"<strong>Blog 03 — Three Strategic Questions</strong> — Every Water Executive Can Now Answer"},
+  {date:"28 Jan 2026",platform:"LinkedIn",content:"<strong>Affinity Water Client Video</strong> — testimonial video goes live on LinkedIn"},
+  {date:"Feb 2026",platform:"Website",content:"<strong>Blog 04 — Aging Infrastructure in Water Utilities</strong> — challenge-led thought leadership"},
+  {date:"18 Feb 2026",platform:"Website",content:"<strong>Blog 05 — Balancing Short-Term Budgets with Long-Term Resilience</strong>"},
+  {date:"24 Feb 2026",platform:"Website",content:"<strong>Blog 05 amplification</strong> — LinkedIn promotion begins"},
+  {date:"6 Mar 2026",platform:"Website",content:"<strong>Blog 06 — Navigating Regulatory Uncertainty with Agile Decision-Making</strong>"},
+  {date:"24 Mar 2026",platform:"Website",content:"<strong>Blog 07 — Maximizing Value from Limited Data in Asset Decisions</strong>"},
+  {date:"8 Apr 2026",platform:"Website",content:"<strong>Blog 08 — Bridging Silos: One Platform for Planning, Engineering, and Finance</strong>"},
+  {date:"29 Apr 2026",platform:"Website",content:"<strong>Blog 09 — Embedding Risk Tolerance into Capital Decision-Making</strong>"},
+  {date:"May 2026",platform:"Website",content:"<strong>Blog 10 — Preparing for Climate Volatility in Asset Planning</strong>"},
+  {date:"May 2026",platform:"Website",content:"<strong>Blog 11 — Implementing Sustainable and Financially Creative Plans for Water Utilities</strong>"},
+  {date:"Jun 2026",platform:"Website",content:"<strong>Blog 12 — Aligning Investment Strategies with Net Zero and ESG Goals</strong>"},
+  {date:"Jun 2026",platform:"Website",content:"<strong>Blog 13 — Justifying Investments in Non-Revenue Generating Assets</strong>"},
+];
+const platformStyles={
+  LinkedIn:{bg:"#6c3bff",color:"#fff"},
+  Demandbase:{bg:"#00d4c8",color:"#09031e"},
+  Website:{bg:"#ede9fe",color:"#4c1d95"},
+};
+const tbody=document.getElementById("cal-body");
+calData.forEach((r,i)=>{
+  const ps=platformStyles[r.platform]||{bg:"#e0d9ff",color:"#4c1d95"};
+  const tr=document.createElement("tr");
+  tr.style.cssText=`border-bottom:1px solid #f0eeff;background:${i%2===0?"#fff":"#faf9ff"}`;
+  tr.innerHTML=`
+    <td style="padding:11px 14px;color:#4a5568;white-space:nowrap;font-size:13px">${r.date}</td>
+    <td style="padding:11px 14px"><span style="display:inline-block;padding:3px 10px;border-radius:50px;font-size:10.5px;font-weight:700;letter-spacing:0.3px;background:${ps.bg};color:${ps.color}">${r.platform}</span></td>
+    <td style="padding:11px 14px;color:#1a0a4a;line-height:1.5">${r.content}</td>`;
+  tbody.appendChild(tr);
+});
+</script>
+
+<!-- NURTURE -->
+<div id="nurture" class="sec-white">
+  <div class="sec-inner">
+    <div class="sec-eyebrow" style="color:var(--purple-bright)">Marketo Nurture Streams</div>
+    <h2 class="sec-title-dark">Email <em style="font-style:normal;color:var(--purple-bright)">Nurture Framework</em></h2>
+    <p class="sec-body-dark">Three structured nurture streams mapped to funnel stage — designed to move contacts from first awareness through to sales-ready qualification. All templates available in SharePoint.</p>
+    <div class="g3">
+      <div class="ncard"><div class="nhead nh-t"><span class="nlabel">TOFU Stream</span><span class="nbadge">Awareness</span></div><div class="nbody"><div class="nst">Purpose</div><p class="npurpose">Drive traffic to awareness content, blogs, testimonials, and campaign education pieces.</p><div class="nst">Email Examples</div><ul class="nlist"><li>Industry pain point awareness emails</li><li>Blog promotion and content digests</li><li>Campaign launch and awareness sends</li></ul><div class="nst">Triggers</div><div class="triggers"><span class="trig">New audience entry</span><span class="trig">Paid social engagement</span><span class="trig">Landing page visits</span></div></div></div>
+      <div class="ncard"><div class="nhead nh-m"><span class="nlabel">MOFU Stream</span><span class="nbadge">Engagement</span></div><div class="nbody"><div class="nst">Purpose</div><p class="npurpose">Deepen engagement with educational content, solution proof, and re-engagement sequences.</p><div class="nst">Email Examples</div><ul class="nlist"><li>White paper and asset delivery</li><li>Case study spotlights</li><li>Solution explainer sequences</li><li>Re-engagement nurture</li></ul><div class="nst">Triggers</div><div class="triggers"><span class="trig">Content downloads</span><span class="trig">Engaged contacts</span><span class="trig">Repeat visits</span></div></div></div>
+      <div class="ncard"><div class="nhead nh-b"><span class="nlabel">BOFU Stream</span><span class="nbadge">Conversion</span></div><div class="nbody"><div class="nst">Purpose</div><p class="npurpose">Convert qualified leads into demo requests or active sales conversations.</p><div class="nst">Email Examples</div><ul class="nlist"><li>ROI tool and value calculator emails</li><li>Demo invitations and follow-ups</li><li>ABM-targeted outreach</li><li>Webinar and event invitations</li></ul><div class="nst">Triggers</div><div class="triggers"><span class="trig">MQL threshold</span><span class="trig">High-intent engagement</span><span class="trig">Sales readiness signal</span></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SHAREPOINT -->
+<div id="sharepoint" class="sec-deepest">
+  <div class="sec-inner">
+    <div class="sec-eyebrow-teal">Internal Asset Library</div>
+    <h2 class="sec-title">SharePoint Campaign Asset Library</h2>
+    <p class="sec-body">All campaign assets organized by channel, content type, and funnel stage. Use these direct links to find, download, and deploy materials for your region and activation.</p>
+    <div class="ga-sm">
+      <div class="spcard"><div class="spico">✍️</div><div class="spname">Blogs</div><div class="spdesc">Water campaign blog source files, drafts, and related supporting materials.</div><a href="https://ifs.sharepoint.com/:f:/r/sites/CPLF_-marketing/Campaigns/2026/Always%20On/Water/Assets/Blogs?csf=1&web=1&e=ab1wPY" target="_blank" class="spbtn">Open in SharePoint →</a></div>
+      <div class="spcard"><div class="spico">📄</div><div class="spname">Brochures</div><div class="spdesc">Brochure files and downloadable collateral for campaign activation.</div><a href="https://ifs.sharepoint.com/:f:/r/sites/CPLF_-marketing/Campaigns/2026/Always%20On/Water/Assets/Blogs?csf=1&web=1&e=ab1wPY" target="_blank" class="spbtn">Open in SharePoint →</a></div>
+      <div class="spcard"><div class="spico">🎬</div><div class="spname">Videos</div><div class="spdesc">Video assets, testimonial content, and supporting campaign media.</div><a href="https://ifs.sharepoint.com/:f:/r/sites/CPLF_-marketing/Campaigns/2026/Always%20On/Water/Assets/Videos?csf=1&web=1&e=Xu5jcT" target="_blank" class="spbtn">Open in SharePoint →</a></div>
+      <div class="spcard"><div class="spico">🎯</div><div class="spname">Demandbase</div><div class="spdesc">Demandbase materials, display assets, and targeting support files.</div><a href="https://ifs.sharepoint.com/:f:/r/sites/CPLF_-marketing/Campaigns/2026/Always%20On/Water/Demandbase?csf=1&web=1&e=qHOAbZ" target="_blank" class="spbtn">Open in SharePoint →</a></div>
+      <div class="spcard"><div class="spico">🌐</div><div class="spname">Landing Pages</div><div class="spdesc">Landing page source assets, page references, and campaign destination materials.</div><a href="https://ifs.sharepoint.com/:f:/r/sites/CPLF_-marketing/Campaigns/2026/Always%20On/Water/Landing%20Pages?csf=1&web=1&e=jbZVg8" target="_blank" class="spbtn">Open in SharePoint →</a></div>
+      <div class="spcard"><div class="spico">💼</div><div class="spname">LinkedIn</div><div class="spdesc">Organic and paid LinkedIn assets including carousels, copy, and creative.</div><a href="https://ifs.sharepoint.com/:f:/r/sites/CPLF_-marketing/Campaigns/2026/Always%20On/Water/LinkedIn?csf=1&web=1&e=z3osXy" target="_blank" class="spbtn">Open in SharePoint →</a></div>
+      <div class="spcard"><div class="spico">📧</div><div class="spname">Marketo</div><div class="spdesc">Email nurture templates, journey content, and Marketo campaign materials.</div><a href="https://ifs.sharepoint.com/:f:/r/sites/CPLF_-marketing/Campaigns/2026/Always%20On/Water/Marketo?csf=1&web=1&e=WdWw1k" target="_blank" class="spbtn">Open in SharePoint →</a></div>
+      <div class="spcard"><div class="spico">📁</div><div class="spname">Other Assets</div><div class="spdesc">Additional supporting files, miscellaneous resources, and non-standard assets.</div><a href="https://ifs.sharepoint.com/:f:/r/sites/CPLF_-marketing/Campaigns/2026/Always%20On/Water/Other?csf=1&web=1&e=xzDydz" target="_blank" class="spbtn">Open in SharePoint →</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA FOOTER -->
+<div class="cta-sec">
+  <div class="cta-inner">
+    <h2>Access the Campaign Toolkit</h2>
+    <p>All campaign assets are organized in SharePoint and structured for activation by channel, content type, and funnel stage. Field marketing, digital, and sales teams can access everything needed to localize and deploy the campaign.</p>
+    <div class="cta-btns">
+      <a href="https://ifs.sharepoint.com/:f:/r/sites/CPLF_-marketing/Campaigns/2026/Always%20On/Water" target="_blank" class="btn btn-white" style="padding:12px 26px;font-size:14px">Open Campaign SharePoint Folder</a>
+      <a href="#overview" class="btn btn-outline" style="padding:12px 26px;font-size:14px">Back to Top</a>
+    </div>
+    <p class="cta-note">For localization requests, new asset creation, or campaign support — contact Global Marketing.</p>
+  </div>
+</div>
+
+</body>
+</html>
